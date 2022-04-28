@@ -33,8 +33,8 @@ class MealsView extends View {
         <div id="greetings-section">
           <h1 id="greeting">Hi, welcome!</h1>
           <span
-            >Begin by entering your calories requirement to the right, then create
-            a meal(s) and finally get its nutritional analysis by hitting the
+            >Begin by entering your calories requirement by clicking the Edit button, then create
+            some meals and finally get their nutritional data by hitting the
             NUTRITIONALISE button!
           </span>
         </div>

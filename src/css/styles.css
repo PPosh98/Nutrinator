@@ -402,22 +402,40 @@ body {
 #nutrition-table {
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
-  width: 70%;
+  width: 85%;
   margin-bottom: 1rem;
 }
 
 #header-nutrition-table {
 }
 
-.header-requirements {
-  display: inline;
-  margin-right: 5rem;
+table {
+  border-spacing: 0 15px;
+  border-collapse: collapse;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  margin: 25px 0;
+  font-size: 1rem;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.header-meals {
-  display: inline;
-  margin-left: 5rem;
+thead tr {
+  background-color: #3acc2c;
+  color: #ffffff;
+}
+
+tbody tr {
+  border-bottom: thin solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid #3acc2c;
 }
 
 /********************************************** Donut Charts ********************************************/

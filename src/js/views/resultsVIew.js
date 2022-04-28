@@ -5,6 +5,11 @@ class ResultsView extends View {
     "You don't have any meals here, create one now by clicking the 'Create Meal' button!";
   #parentElement = document.getElementById("views");
 
+  constructor() {
+    super();
+    this.drawChart();
+  }
+
   drawChart() {
     google.charts.load("current", { packages: ["corechart"] });
     google.charts.setOnLoadCallback(drawChart);
@@ -64,16 +69,12 @@ class ResultsView extends View {
 					<div id="donutchart2" class="chart"></div>
 				</div>
 				<h2 id="header-nutrition-table">Table of Nutrition</h3>
-				<div id="subheaders-nutrition-table">
-					<h3 class="header-requirements">You Require</h4>
-					<h3 class="header-meals">Your Meals</h4>
-				</div>
 				<table id="nutrition-table">
 					<thead>
 						<tr>
-							<th>Amount</th>
-							<th>Nutrient(units)</th>
-							<th>Amount</th>
+							<th>You Require</th>
+							<th>Nutrient(unit)</th>
+							<th>You Consume</th>
 						</tr>
 					</thead>
 					<tbody>
