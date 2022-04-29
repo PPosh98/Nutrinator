@@ -5,11 +5,6 @@ class ResultsView extends View {
     "You don't have any meals here, create one now by clicking the 'Create Meal' button!";
   #parentElement = document.getElementById("views");
 
-  constructor() {
-    super();
-    this.drawChart();
-  }
-
   drawChart() {
     google.charts.load("current", { packages: ["corechart"] });
     google.charts.setOnLoadCallback(drawChart);
