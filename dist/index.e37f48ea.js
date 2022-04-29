@@ -555,6 +555,7 @@ const controlCreateMeal = function(searchParamsStrArr, searchParamsStr) {
 const controlGetNutrition = async function() {
     await _modelJs.showNutrition();
     _resultsViewJsDefault.default.render(_modelJs.state.allNutrition);
+    _resultsViewJsDefault.default.drawChart();
 };
 const controlOperations = function(operation, mealData) {
     const controlEditMeal = ()=>{
@@ -1208,10 +1209,6 @@ var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class ResultsView extends _viewJsDefault.default {
     #errorMessage = "You don't have any meals here, create one now by clicking the 'Create Meal' button!";
     #parentElement = document.getElementById("views");
-    constructor(){
-        super();
-        this.drawChart();
-    }
     drawChart() {
         google.charts.load("current", {
             packages: [
@@ -1377,6 +1374,6 @@ class AddCaloriesView extends _viewJsDefault.default {
 }
 exports.default = new AddCaloriesView();
 
-},{"./view.js":"bWlJ9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["ddCAb","aenu9"], "aenu9", "parcelRequire619b")
+},{"./view.js":"bWlJ9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["ddCAb","aenu9"], "aenu9", "parcelRequire6884")
 
 //# sourceMappingURL=index.e37f48ea.js.map
