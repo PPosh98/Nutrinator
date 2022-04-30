@@ -75,6 +75,7 @@ body {
 
 .app {
   width: 1000px;
+  min-width: 240px;
   height: 800px;
   background-color: #fff;
   padding: 20px;
@@ -82,8 +83,6 @@ body {
   border-radius: 9px;
   display: grid;
   grid-template-columns: 1fr;
-  /* grid-template-rows: repeat(2, 1fr); */
-  /* transform: translate(-50%, -50%); */
   height: fit-content;
 }
 
@@ -181,43 +180,20 @@ body {
   margin-bottom: 20px;
 }
 
-#btn-nutritionalise {
+#icon-nutritionalise {
   float: right;
-  margin-left: 10px;
-  /* box-shadow: 0px 10px 14px -7px #6b6b6b;
-  background-image: linear-gradient(
-    to right,
-    rgb(4, 196, 14),
-    rgb(73, 216, 16)
-  );
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-  border-color: limegreen; */
+  margin-left: 13px;
+  margin-right: 8px;
 }
 
-#btn-nutritionalise:hover {
-  background-image: linear-gradient(
-    to right,
-    rgb(233, 210, 5),
-    rgb(255, 251, 13)
-  );
-  border-color: gold;
-  color: goldenrod;
+#icon-nutritionalise:hover {
+  filter: invert(79%) sepia(16%) saturate(4085%) hue-rotate(2deg)
+    brightness(108%) contrast(105%);
 }
 
-#btn-create-meal {
-  float: right;
-  /* box-shadow: 0px 10px 14px -7px #6b6b6b;
-  cursor: pointer;
-  background-image: linear-gradient(
-    to right,
-    rgb(4, 196, 14),
-    rgb(73, 216, 16)
-  );
-  color: white;
-  border-radius: 5px;
-  border-color: limegreen; */
+#icon-nutritionalise:active {
+  width: 20px;
+  margin-left: 15px;
 }
 
 .meal {
@@ -245,6 +221,20 @@ body {
   bottom: 5px;
   cursor: pointer;
   width: 17px;
+}
+
+.icon {
+  filter: invert(0%);
+  width: 22px;
+  cursor: pointer;
+}
+
+#icon-create {
+  float: right;
+}
+
+#icon-create:active {
+  width: 20px;
 }
 
 #meal-remove {
@@ -415,9 +405,9 @@ table {
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   margin: 25px 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: sans-serif;
-  min-width: 400px;
+  min-width: 235px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -479,5 +469,9 @@ tbody tr:last-of-type {
   #meals {
     grid-column: 1/2;
     grid-row: 3/4;
+  }
+
+  .chart {
+    margin: 0 1rem;
   }
 }

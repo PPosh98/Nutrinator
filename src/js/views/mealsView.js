@@ -15,7 +15,7 @@ class MealsView extends View {
   }
 
   addHandlerGetNutrition(handler) {
-    const btnNutritionalise = document.getElementById("btn-nutritionalise");
+    const btnNutritionalise = document.getElementById("icon-nutritionalise");
     btnNutritionalise.addEventListener("click", handler);
   }
 
@@ -46,8 +46,18 @@ class MealsView extends View {
         <div id="meals">
           <div id="selected-meals-section">
             <span id="header-selected-meals"><b>Selected Meals</b></span>
-            <button id="btn-nutritionalise" class="btn-submit">NUTRITIONALISE</button>
-            <button id="btn-create-meal" class="btn-submit">Create Meal</button>
+            <img 
+              id="icon-nutritionalise"
+              class="icon" 
+              src="src/img/icons/wellness.png"
+              title="Nutritonalise"
+            />
+            <img 
+              id="icon-create"
+              class="icon" 
+              src="src/img/icons/create.png"
+              title="Create a Meal"
+            />
             <hr class="horizontal-lines" />
             <div id="selected-meals"></div>
           </div>

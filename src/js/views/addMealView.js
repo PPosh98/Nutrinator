@@ -6,7 +6,7 @@ export default class AddMealView extends View {
 
   #window = document.getElementById("create-meal-window");
   #overlay = document.getElementById("overlay-create");
-  #btnOpen = document.getElementById("btn-create-meal");
+  #btnOpen = document.getElementById("icon-create");
   #btnClose = document.getElementById("btn-close-create");
   #messageDiv = document.getElementById("message-create");
   #inputMealName = document.getElementById("meal-name-create");
