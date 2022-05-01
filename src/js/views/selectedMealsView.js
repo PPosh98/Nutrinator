@@ -26,21 +26,21 @@ class SelectedMealsView extends View {
           <img
             id="meal-edit"
             class="meal-icon"
-            src="src/img/icons/edit.png"
+            src="/src/img/icons/edit.png"
             alt="edit"
             title="Edit Meal"
           />
           <img
             id="meal-bin"
             class="meal-icon"
-            src="src/img/icons/bin.png"
+            src="/src/img/icons/bin.png"
             alt="bin"
             title="Delete Meal"
           />
           <img
             id="meal-remove"
             class="meal-icon"
-            src="src/img/icons/minus.png"
+            src="/src/img/icons/minus.png"
             alt="remove"
             title="Move to Meals Repository"
           />

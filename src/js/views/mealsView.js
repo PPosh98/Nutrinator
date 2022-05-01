@@ -49,13 +49,13 @@ class MealsView extends View {
             <img 
               id="icon-nutritionalise"
               class="icon" 
-              src="src/img/icons/wellness.png"
+              src="/src/img/icons/wellness.png"
               title="Nutritonalise"
             />
             <img 
               id="icon-create"
               class="icon" 
-              src="src/img/icons/create.png"
+              src="/src/img/icons/create.png"
               title="Create a Meal"
             />
             <hr class="horizontal-lines" />

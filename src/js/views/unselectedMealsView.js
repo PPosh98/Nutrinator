@@ -25,21 +25,21 @@ class UnselectedMealsView extends View {
           <img
             id="meal-edit"
             class="meal-icon"
-            src="src/img/icons/edit.png"
+            src="/src/img/icons/edit.png"
             alt="edit"
             title="Edit Meal"
           />
           <img
             id="meal-bin"
             class="meal-icon"
-            src="src/img/icons/bin.png"
+            src="/src/img/icons/bin.png"
             alt="bin"
             title="Delete Meal"
           />
           <img
             id="meal-add"
             class="meal-icon"
-            src="src/img/icons/add.png"
+            src="/src/img/icons/add.png"
             alt="add"
             title="Add to Selected Meals"
           />
