@@ -16,7 +16,9 @@ const controlAddCalories = function (calories) {
 };
 
 const controlMeals = function () {
-  caloriesView.render(model.state.userNutrition.calories);
+  if (model.state.userNutrition.calories) {
+    caloriesView.render(model.state.userNutrition.calories);
+  }
   renderMeals();
   AddMealView.mealId = model.state.meals.id;
 };

@@ -42,7 +42,9 @@ class MealsView extends View {
         </div>
         <div id="calories-section">
           <p>My calories requirement:</p>
-          <div id="calories"></div>
+          <div id="calories">
+            <h1 id="calories-value">2000<span id="kcal">kcal</span></h1>
+          </div>
           <button id="btn-edit" class="btn-submit">Edit</button>
         </div>
         <div id="meals">
