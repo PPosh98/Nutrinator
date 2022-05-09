@@ -1,7 +1,7 @@
 import View from "./view.js";
-import editIcon from "../../img/icons/edit.png";
-import binIcon from "../../img/icons/bin.png";
-import addIcon from "../../img/icons/add.png";
+// import editIcon from "../../img/icons/edit.png";
+// import binIcon from "../../img/icons/bin.png";
+// import addIcon from "../../img/icons/add.png";
 
 class UnselectedMealsView extends View {
   #parentElement = document.getElementById("meals-repo");
@@ -28,21 +28,21 @@ class UnselectedMealsView extends View {
           <img
             id="meal-edit"
             class="meal-icon"
-            src="${editIcon}"
+            src="/src/img/icons/edit.png"
             alt="edit"
             title="Edit Meal"
           />
           <img
             id="meal-bin"
             class="meal-icon"
-            src="${binIcon}"
+            src="/src/img/icons/bin.png"
             alt="bin"
             title="Delete Meal"
           />
           <img
             id="meal-add"
             class="meal-icon"
-            src="${addIcon}"
+            src="/src/img/icons/add.png"
             alt="add"
             title="Add to Selected Meals"
           />

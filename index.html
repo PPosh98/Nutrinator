@@ -134,7 +134,7 @@
     <div id="create-meal-window" class="modal-window hidden">
       <div id="message-create" class="message hidden"></div>
       <button id="btn-close-create" class="btn-close-modal">&times;</button>
-      <form id="form-create-meal">
+      <form id="form-create-meal" class="form-meal">
         <h2 class="heading-modal">Create a Meal</h2>
         <div class="div-meal-name">
           <label for="meal-name">Meal Name:</label>
@@ -162,7 +162,6 @@
             name="meal-ingredients"
             id="ingredients-create"
             class="input-meal-ingredients"
-            cols="50"
             rows="10"
             placeholder="Example:&#x0a;&#x0a;200 g chicken&#x0a;2 tsp sugar"
             required
@@ -170,7 +169,7 @@
         </div>
         <input
           id="btn-create"
-          class="btn-submit"
+          class="btn-submit btn-meal-form"
           type="submit"
           value="Create"
         />
@@ -181,7 +180,7 @@
     <div id="update-meal-window" class="modal-window hidden">
       <div id="message-update" class="message hidden"></div>
       <button id="btn-close-update" class="btn-close-modal">&times;</button>
-      <form id="form-update-meal">
+      <form id="form-update-meal" class="form-meal">
         <h2 class="heading-modal">Edit a Meal</h2>
         <div class="div-meal-name">
           <label for="meal-name">Meal Name:</label>
@@ -217,7 +216,7 @@
         </div>
         <input
           id="btn-update"
-          class="btn-submit"
+          class="btn-submit btn-meal-form"
           type="submit"
           value="Update"
         />
@@ -228,9 +227,9 @@
     <div id="calories-window" class="modal-window hidden">
       <div id="message-save" class="message hidden"></div>
       <button id="btn-close-calories" class="btn-close-modal">&times;</button>
-      <form id="form-save-calories">
-        <h2 id="heading-modal">Your Calories</h2>
-        <div id="div-calories">
+      <form id="form-save-calories" class="form-meal">
+        <h2 class="heading-modal">Your Calories</h2>
+        <div class="div-calories">
           <label for="calories">Calories Requirement:</label> <br />
           <input
             type="number"
@@ -241,7 +240,12 @@
             required
           />
         </div>
-        <input id="btn-save" class="btn-submit" type="submit" value="Save" />
+        <input
+          id="btn-save"
+          class="btn-submit btn-meal-form"
+          type="submit"
+          value="Save"
+        />
       </form>
     </div>
   </body>

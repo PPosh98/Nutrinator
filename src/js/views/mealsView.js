@@ -1,6 +1,6 @@
 import View from "./view.js";
-import wellnessIcon from "../../img/icons/wellness.png";
-import createIcon from "../../img/icons/create.png";
+// import wellnessIcon from "../../img/icons/wellness.png";
+// import createIcon from "../../img/icons/create.png";
 
 class MealsView extends View {
   #errorMessage =
@@ -53,13 +53,13 @@ class MealsView extends View {
             <img 
               id="icon-nutritionalise"
               class="icon" 
-              src="${wellnessIcon}"
+              src="/src/img/icons/wellness.png"
               title="Nutritonalise"
             />
             <img 
               id="icon-create"
               class="icon" 
-              src="${createIcon}"
+              src="/src/img/icons/create.png"
               title="Create a Meal"
             />
             <hr class="horizontal-lines" />

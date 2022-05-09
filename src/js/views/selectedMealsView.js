@@ -1,7 +1,7 @@
 import View from "./view.js";
-import editIcon from "../../img/icons/edit.png";
-import binIcon from "../../img/icons/bin.png";
-import minusIcon from "../../img/icons/minus.png";
+// import editIcon from "../../img/icons/edit.png";
+// import binIcon from "../../img/icons/bin.png";
+// import minusIcon from "../../img/icons/minus.png";
 
 class SelectedMealsView extends View {
   #parentElement = document.getElementById("selected-meals");
@@ -29,21 +29,21 @@ class SelectedMealsView extends View {
           <img
             id="meal-edit"
             class="meal-icon"
-            src="${editIcon}"
+            src="/src/img/icons/edit.png"
             alt="edit"
             title="Edit Meal"
           />
           <img
             id="meal-bin"
             class="meal-icon"
-            src="${binIcon}"
+            src="/src/img/icons/bin.png"
             alt="bin"
             title="Delete Meal"
           />
           <img
             id="meal-remove"
             class="meal-icon"
-            src="${minusIcon}"
+            src="/src/img/icons/minus.png"
             alt="remove"
             title="Move to Meals Repository"
           />
