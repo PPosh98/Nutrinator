@@ -1,4 +1,6 @@
 import * as model from "./model.js";
+import View from "./views/view.js";
+const view = new View();
 import mealsView from "./views/mealsView.js";
 import AddMealView from "./views/addMealView.js";
 const addMealView = new AddMealView();
@@ -37,15 +39,52 @@ const controlGetNutrition = async function () {
   resultsView.drawChart();
 };
 
-const controlOperations = function (operation, mealData) {
-  const controlEditMeal = () => {
-    editMealView.openWindow(mealData);
-  };
+// const controlOperations = function (operation, mealData) {
+//   const controlEditMeal = () => {
+//     editMealView.openWindow(mealData);
+//   };
+//   const controlDeleteMeal = () => model.deleteMeal(mealData);
+//   const controlRemoveFromMeal = () => model.moveMeal(mealData);
+//   const controlAddToMeal = () => model.moveMeal(mealData);
+
+//   const handleClick = {
+//     "meal-edit": controlEditMeal,
+//     "meal-bin": controlDeleteMeal,
+//     "meal-remove": controlRemoveFromMeal,
+//     "meal-add": controlAddToMeal
+//   };
+
+//   handleClick[operation]();
+
+//   renderMeals();
+// };
+
+const controlUpdateMeal = function (mealData) {
+  model.editMeal(mealData);
+
+  editMealView.renderMessage();
+
+  renderMeals();
+};
+
+const renderMeals = function () {
+  selectedMealsView.render(model.state.meals.selectedMeals);
+  unselectedMealsView.render(model.state.meals.unselectedMeals);
+};
+
+const controlEvents = function (operation, mealData = undefined) {
+  const controlEditCaloriesWindow = () => addCaloriesView.toggleWindow();
+  const controlCreateMealWindow = () => addMealView.toggleWindow();
+  const controlGetResults = () => mealsView.getResults(controlGetNutrition);
+  const controlEditMeal = () => editMealView.openWindow(mealData);
   const controlDeleteMeal = () => model.deleteMeal(mealData);
   const controlRemoveFromMeal = () => model.moveMeal(mealData);
   const controlAddToMeal = () => model.moveMeal(mealData);
 
   const handleClick = {
+    "btn-edit": controlEditCaloriesWindow,
+    "icon-create": controlCreateMealWindow,
+    "icon-nutritionalise": controlGetResults,
     "meal-edit": controlEditMeal,
     "meal-bin": controlDeleteMeal,
     "meal-remove": controlRemoveFromMeal,
@@ -57,35 +96,16 @@ const controlOperations = function (operation, mealData) {
   renderMeals();
 };
 
-const controlUpdateMeal = function (mealData) {
-  model.editMeal(mealData);
-
-  editMealView.renderMessage();
-
-  renderMeals();
-};
-
-const controlGetMealsNutrition = function () {
-  // Get total nutrition value of all meals
-  // Render mealsNutritionView
-};
-
-const controlGetComparison = function () {
-  // Compare userNutrition data with mealsNutrition data and show results
-};
-
-const renderMeals = function () {
-  selectedMealsView.render(model.state.meals.selectedMeals);
-  unselectedMealsView.render(model.state.meals.unselectedMeals);
-};
-
 const init = function () {
-  mealsView.addHandlerRender(controlMeals);
-  mealsView.addHandlerGetNutrition(controlGetNutrition);
+  view.addEventsHandler(controlEvents);
+  mealsView.addHandlerMealsViewTab(controlMeals);
+  resultsView.addHandlerResultsTab();
+  // addMealView.addHandlerShowWindow();
+  // addCaloriesView.addHandlerShowWindow();
   addCaloriesView.addHandlerAddCalories(controlAddCalories);
-  mealsView.addHandlerControls(controlOperations);
   editMealView.addHandlerUpdateMeal(controlUpdateMeal);
   addMealView.addHandlerCreateMeal(controlCreateMeal);
+  // mealsView.addHandlerControls(controlOperations);
 };
 
 init();

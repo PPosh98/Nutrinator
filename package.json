@@ -10,7 +10,11 @@
   "author": "Azim Shah",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.2.1"
+    "parcel": "^2.2.1",
+    "parcel-reporter-static-files-copy": "^1.3.4"
+  },
+  "staticFiles": {
+    "staticOutPath": "static"
   },
   "dependencies": {
     "core-js": "^3.20.3"

@@ -12,22 +12,36 @@ class MealsView extends View {
     this.getParentElement().innerHTML = this.getMarkup();
   }
 
-  addHandlerRender(handler) {
-    window.addEventListener("load", handler);
-  }
-
-  addHandlerGetNutrition(handler) {
-    const btnNutritionalise = document.getElementById("icon-nutritionalise");
-    btnNutritionalise.addEventListener("click", handler);
-  }
-
-  addHandlerControls(handler) {
-    const meals = document.getElementById("meals");
-    meals.addEventListener("click", function (e) {
-      if (e.target.classList.contains("meal-icon"))
-        handler(e.target.id, e.target.closest("div .meal").dataset.meal);
+  addHandlerMealsViewTab(handler) {
+    this.mealsViewTab.addEventListener("click", () => {
+      View.prevResultsViewHTML = this.getParentElement().innerHTML;
+      if (View.prevMealsViewHTML)
+        this.getParentElement().innerHTML = View.prevMealsViewHTML;
+      this.toggleMealsViewTab();
+      handler();
     });
+    this.mealsViewTab.click();
   }
+
+  getResults(handler) {
+    // const btnNutritionalise = document.getElementById("icon-nutritionalise");
+    // btnNutritionalise.addEventListener("click", () => {
+    View.prevMealsViewHTML = this.getParentElement().innerHTML;
+    this.toggleResultsViewTab();
+    handler();
+    setTimeout(() => {
+      View.prevResultsViewHTML = this.getParentElement().innerHTML;
+    }, 1000);
+    // });
+  }
+
+  // addHandlerControls(handler) {
+  //   const meals = document.getElementById("meals");
+  //   meals.addEventListener("click", function (e) {
+  //     if (e.target.classList.contains("meal-icon"))
+  //       handler(e.target.id, e.target.closest("div .meal").dataset.meal);
+  //   });
+  // }
 
   #generateMarkup() {
     return `
@@ -53,13 +67,13 @@ class MealsView extends View {
             <img 
               id="icon-nutritionalise"
               class="icon" 
-              src="/src/img/icons/wellness.png"
+              src="static/wellness.png"
               title="Nutritonalise"
             />
             <img 
               id="icon-create"
               class="icon" 
-              src="/src/img/icons/create.png"
+              src="static/create.png"
               title="Create a Meal"
             />
             <hr class="horizontal-lines" />

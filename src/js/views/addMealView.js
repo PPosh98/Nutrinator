@@ -6,7 +6,7 @@ export default class AddMealView extends View {
 
   #window = document.getElementById("create-meal-window");
   #overlay = document.getElementById("overlay-create");
-  #btnOpen = document.getElementById("icon-create");
+  // #btnOpen = document.getElementById("icon-create");
   #btnClose = document.getElementById("btn-close-create");
   #messageDiv = document.getElementById("message-create");
   #inputMealName = document.getElementById("meal-name-create");
@@ -18,7 +18,7 @@ export default class AddMealView extends View {
 
   constructor() {
     super();
-    this.#addHandlerShowWindow();
+    // this.#addHandlerShowWindow();
     this.#addHandlerHideWindow();
   }
 
@@ -27,9 +27,9 @@ export default class AddMealView extends View {
     this.#window.classList.toggle("hidden");
   }
 
-  #addHandlerShowWindow() {
-    this.#btnOpen.addEventListener("click", this.toggleWindow.bind(this));
-  }
+  // #addHandlerShowWindow() {
+  //   this.#btnOpen.addEventListener("click", this.toggleWindow.bind(this));
+  // }
 
   #addHandlerHideWindow() {
     this.#btnClose.addEventListener("click", this.toggleWindow.bind(this));

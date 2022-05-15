@@ -1,6 +1,40 @@
 export default class View {
   // #parentElement = document.querySelector("body");
   #data;
+  mealsViewTab = document.getElementById("link-my-meals");
+  resultsTab = document.getElementById("link-results");
+  static prevMealsViewHTML;
+  static prevResultsViewHTML;
+
+  addEventsHandler(handler) {
+    const views = document.getElementById("views");
+    views.addEventListener("click", function (e) {
+      console.log(e.target.id);
+      if (e.target.id === "btn-edit") handler(e.target.id);
+      if (e.target.id === "icon-create") handler(e.target.id);
+      if (e.target.id === "icon-nutritionalise") handler(e.target.id);
+      if (e.target.classList.contains("meal-icon"))
+        handler(e.target.id, e.target.closest("div .meal").dataset.meal);
+    });
+  }
+
+  toggleMealsViewTab() {
+    if (!this.mealsViewTab.classList.contains("tablinkActive")) {
+      this.mealsViewTab.classList.add("tablinkActive");
+      if (this.resultsTab.classList.contains("tablinkActive")) {
+        this.resultsTab.classList.remove("tablinkActive");
+      }
+    }
+  }
+
+  toggleResultsViewTab() {
+    if (!this.resultsTab.classList.contains("tablinkActive")) {
+      this.resultsTab.classList.add("tablinkActive");
+      if (this.mealsViewTab.classList.contains("tablinkActive")) {
+        this.mealsViewTab.classList.remove("tablinkActive");
+      }
+    }
+  }
 
   render(data) {
     if (!data || (Array.isArray(data) && data.length === 0))

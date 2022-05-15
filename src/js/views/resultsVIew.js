@@ -5,6 +5,16 @@ class ResultsView extends View {
     "You don't have any meals here, create one now by clicking the 'Create Meal' button!";
   #parentElement = document.getElementById("views");
 
+  addHandlerResultsTab() {
+    this.resultsTab.addEventListener("click", () => {
+      View.prevMealsViewHTML = this.getParentElement().innerHTML;
+      if (View.prevResultsViewHTML) {
+        this.getParentElement().innerHTML = View.prevResultsViewHTML;
+        this.toggleResultsViewTab();
+      }
+    });
+  }
+
   drawChart() {
     google.charts.load("current", { packages: ["corechart"] });
     google.charts.setOnLoadCallback(drawChart);
@@ -76,7 +86,7 @@ class ResultsView extends View {
             ${this.getData().map(this.#generateRowMarkup).join("")}
 					</tbody>
 				</table>
-				<button class="btn-submit">Select Other Meal(s)</button>
+				<button id="btn-other" class="btn-submit">Select Other Meal(s)</button>
 			</div>`;
   }
 

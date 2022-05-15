@@ -117,6 +117,10 @@ body {
   background-color: #777;
 }
 
+.tablinkActive {
+  background-color: rgb(66, 66, 66);
+}
+
 #link-my-meals {
 }
 
