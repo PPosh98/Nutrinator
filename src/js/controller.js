@@ -36,28 +36,7 @@ const controlCreateMeal = function (searchParamsStrArr, searchParamsStr) {
 const controlGetNutrition = async function () {
   await model.showNutrition();
   resultsView.render(model.state.allNutrition);
-  resultsView.drawChart();
 };
-
-// const controlOperations = function (operation, mealData) {
-//   const controlEditMeal = () => {
-//     editMealView.openWindow(mealData);
-//   };
-//   const controlDeleteMeal = () => model.deleteMeal(mealData);
-//   const controlRemoveFromMeal = () => model.moveMeal(mealData);
-//   const controlAddToMeal = () => model.moveMeal(mealData);
-
-//   const handleClick = {
-//     "meal-edit": controlEditMeal,
-//     "meal-bin": controlDeleteMeal,
-//     "meal-remove": controlRemoveFromMeal,
-//     "meal-add": controlAddToMeal
-//   };
-
-//   handleClick[operation]();
-
-//   renderMeals();
-// };
 
 const controlUpdateMeal = function (mealData) {
   model.editMeal(mealData);
@@ -100,12 +79,9 @@ const init = function () {
   view.addEventsHandler(controlEvents);
   mealsView.addHandlerMealsViewTab(controlMeals);
   resultsView.addHandlerResultsTab();
-  // addMealView.addHandlerShowWindow();
-  // addCaloriesView.addHandlerShowWindow();
   addCaloriesView.addHandlerAddCalories(controlAddCalories);
   editMealView.addHandlerUpdateMeal(controlUpdateMeal);
   addMealView.addHandlerCreateMeal(controlCreateMeal);
-  // mealsView.addHandlerControls(controlOperations);
 };
 
 init();

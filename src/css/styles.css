@@ -11,6 +11,7 @@ body {
 }
 
 .hidden {
+  display: none;
   visibility: hidden;
   opacity: 0;
 }
@@ -121,12 +122,6 @@ body {
   background-color: rgb(66, 66, 66);
 }
 
-#link-my-meals {
-}
-
-#link-results {
-}
-
 /********************************************** Greetings Section ************************************************/
 
 #greetings-section {
@@ -149,10 +144,6 @@ body {
 
 #calories-value {
   margin-bottom: 0;
-}
-
-#btn-edit {
-  /* height: 0.7rem; */
 }
 
 #kcal {
@@ -434,6 +425,7 @@ body {
 }
 
 #header-nutrition-table {
+  font-size: 2rem;
 }
 
 table {
@@ -442,7 +434,7 @@ table {
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   margin: 25px 0;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   font-family: sans-serif;
   min-width: 235px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -467,7 +459,7 @@ tbody tr:last-of-type {
 
 /********************************************** Donut Charts ********************************************/
 
-#charts {
+/* #charts {
   margin-top: 2rem;
 }
 
@@ -480,7 +472,7 @@ tbody tr:last-of-type {
 }
 
 #donutchart2 {
-}
+} */
 
 /********************************************** Media Queries ********************************************/
 
@@ -535,6 +527,14 @@ tbody tr:last-of-type {
     margin: 8px;
   }
 
+  table {
+    font-size: 0.9rem;
+  }
+
+  #header-nutrition-table {
+    font-size: 1.2rem;
+  }
+
   #my-meals-view {
     grid-template-columns: 1fr;
   }
@@ -558,7 +558,7 @@ tbody tr:last-of-type {
     grid-row: 3/4;
   }
 
-  .chart {
+  /* .chart {
     margin: 0 1rem;
-  }
+  } */
 }
