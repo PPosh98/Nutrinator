@@ -14,9 +14,8 @@ class MealsView extends View {
 
   addHandlerMealsViewTab(handler) {
     this.mealsViewTab.addEventListener("click", () => {
-      View.prevResultsViewHTML = this.getParentElement().innerHTML;
-      if (View.prevMealsViewHTML)
-        this.getParentElement().innerHTML = View.prevMealsViewHTML;
+      this.hideResultsView();
+      this.showMealsView();
       this.toggleMealsViewTab();
       handler();
     });
@@ -24,15 +23,10 @@ class MealsView extends View {
   }
 
   getResults(handler) {
-    // const btnNutritionalise = document.getElementById("icon-nutritionalise");
-    // btnNutritionalise.addEventListener("click", () => {
-    View.prevMealsViewHTML = this.getParentElement().innerHTML;
-    this.toggleResultsViewTab();
+    this.hideMealsView();
     handler();
-    setTimeout(() => {
-      View.prevResultsViewHTML = this.getParentElement().innerHTML;
-    }, 1000);
-    // });
+    this.toggleResultsViewTab();
+    this.showResultsView();
   }
 
   // addHandlerControls(handler) {

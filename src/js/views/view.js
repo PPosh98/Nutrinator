@@ -3,8 +3,8 @@ export default class View {
   #data;
   mealsViewTab = document.getElementById("link-my-meals");
   resultsTab = document.getElementById("link-results");
-  static prevMealsViewHTML;
-  static prevResultsViewHTML;
+  static mealsView;
+  static resultsView;
 
   addEventsHandler(handler) {
     const views = document.getElementById("views");
@@ -36,6 +36,39 @@ export default class View {
     }
   }
 
+  showResultsView() {
+    View.resultsView = document.getElementById("results-view");
+    if (View.resultsView)
+      if (View.resultsView.classList.contains("hidden")) {
+        View.resultsView.classList.remove("hidden");
+      }
+  }
+
+  hideMealsView() {
+    View.mealsView = document.getElementById("my-meals-view");
+    if (View.mealsView)
+      if (!View.mealsView.classList.contains("hidden")) {
+        View.mealsView.classList.add("hidden");
+        View.mealsView.style.display = "none";
+      }
+  }
+
+  hideResultsView() {
+    View.resultsView = document.getElementById("results-view");
+    if (View.resultsView)
+      if (!View.resultsView.classList.contains("hidden"))
+        View.resultsView.classList.add("hidden");
+  }
+
+  showMealsView() {
+    View.mealsView = document.getElementById("my-meals-view");
+    if (View.mealsView)
+      if (View.mealsView.classList.contains("hidden")) {
+        View.mealsView.classList.remove("hidden");
+        View.mealsView.style.display = "grid";
+      }
+  }
+
   render(data) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
@@ -47,35 +80,13 @@ export default class View {
     this.getParentElement().insertAdjacentHTML("afterbegin", markup);
   }
 
-  update(data) {
+  show(data) {
+    if (!data || (Array.isArray(data) && data.length === 0))
+      return this.renderError();
     this.setData(data);
-    const newMarkup = this.getMarkup();
 
-    const newDOM = document.createRange().createContextualFragment(newMarkup);
-    const newElements = Array.from(newDOM.querySelectorAll("*"));
-    const curElements = Array.from(
-      this.getParentElement().querySelectorAll("*")
-    );
-
-    newElements.forEach((newEl, i) => {
-      const curEl = curElements[i];
-      // console.log(curEl, newEl.isEqualNode(curEl));
-
-      // Updates changed TEXT
-      if (
-        !newEl.isEqualNode(curEl) &&
-        newEl.firstChild?.nodeValue.trim() !== ""
-      ) {
-        // console.log('💥', newEl.firstChild.nodeValue.trim());
-        curEl.textContent = newEl.textContent;
-      }
-
-      // Updates changed ATTRIBUES
-      if (!newEl.isEqualNode(curEl))
-        Array.from(newEl.attributes).forEach((attr) =>
-          curEl.setAttribute(attr.name, attr.value)
-        );
-    });
+    const markup = this.getMarkup();
+    this.getParentElement().insertAdjacentHTML("afterbegin", markup);
   }
 
   clear() {

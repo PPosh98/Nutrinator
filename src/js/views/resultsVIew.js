@@ -7,11 +7,9 @@ class ResultsView extends View {
 
   addHandlerResultsTab() {
     this.resultsTab.addEventListener("click", () => {
-      View.prevMealsViewHTML = this.getParentElement().innerHTML;
-      if (View.prevResultsViewHTML) {
-        this.getParentElement().innerHTML = View.prevResultsViewHTML;
-        this.toggleResultsViewTab();
-      }
+      this.hideMealsView();
+      this.toggleResultsViewTab();
+      this.showResultsView();
     });
   }
 
@@ -31,7 +29,6 @@ class ResultsView extends View {
             ${this.getData().map(this.#generateRowMarkup).join("")}
 					</tbody>
 				</table>
-				<button id="btn-other" class="btn-submit">Select Other Meal(s)</button>
 			</div>`;
   }
 

@@ -35,7 +35,7 @@ const controlCreateMeal = function (searchParamsStrArr, searchParamsStr) {
 
 const controlGetNutrition = async function () {
   await model.showNutrition();
-  resultsView.render(model.state.allNutrition);
+  resultsView.show(model.state.allNutrition);
 };
 
 const controlUpdateMeal = function (mealData) {
