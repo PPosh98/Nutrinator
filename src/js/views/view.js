@@ -1,5 +1,4 @@
 export default class View {
-  // #parentElement = document.querySelector("body");
   #data;
   mealsViewTab = document.getElementById("link-my-meals");
   resultsTab = document.getElementById("link-results");
@@ -9,7 +8,6 @@ export default class View {
   addEventsHandler(handler) {
     const views = document.getElementById("views");
     views.addEventListener("click", function (e) {
-      console.log(e.target.id);
       if (e.target.id === "btn-edit") handler(e.target.id);
       if (e.target.id === "icon-create") handler(e.target.id);
       if (e.target.id === "icon-nutritionalise") handler(e.target.id);

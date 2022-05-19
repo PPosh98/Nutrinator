@@ -7,9 +7,11 @@ class ResultsView extends View {
 
   addHandlerResultsTab() {
     this.resultsTab.addEventListener("click", () => {
-      this.hideMealsView();
-      this.toggleResultsViewTab();
-      this.showResultsView();
+      if (View.resultsView) {
+        this.hideMealsView();
+        this.toggleResultsViewTab();
+        this.showResultsView();
+      }
     });
   }
 
