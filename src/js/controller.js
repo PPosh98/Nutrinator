@@ -75,6 +75,7 @@ const controlEvents = function (operation, mealData = undefined) {
   renderMeals();
 };
 
+//Initialises web app and adds event handlers where neccessary
 const init = function () {
   view.addEventsHandler(controlEvents);
   mealsView.addHandlerMealsViewTab(controlMeals);

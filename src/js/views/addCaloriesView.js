@@ -6,13 +6,11 @@ class AddCaloriesView extends View {
 
   #window = document.getElementById("calories-window");
   #overlay = document.getElementById("overlay-calories");
-  // #btnOpen = document.getElementById("btn-edit");
   #btnClose = document.getElementById("btn-close-calories");
   #messageDiv = document.getElementById("message-save");
 
   constructor() {
     super();
-    // this.#addHandlerShowWindow();
     this.#addHandlerHideWindow();
   }
 
@@ -20,10 +18,6 @@ class AddCaloriesView extends View {
     this.#overlay.classList.toggle("hidden");
     this.#window.classList.toggle("hidden");
   }
-
-  // #addHandlerShowWindow() {
-  //   this.#btnOpen.addEventListener("click", this.toggleWindow.bind(this));
-  // }
 
   #addHandlerHideWindow() {
     this.#btnClose.addEventListener("click", this.toggleWindow.bind(this));

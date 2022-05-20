@@ -1,6 +1,4 @@
-const RAPIDKEY = "d9a2df86c9msh3b2e2eae8db07e7p12b659jsn624e4569d224";
-
-const SPKey = "6079577d1f3348e2a518bb9972c92fa7";
+import { API_KEY } from "./config.js";
 
 export const state = {
   allNutrition: [],
@@ -30,6 +28,7 @@ const nutrObj = {
   vitamin_d: ""
 };
 
+//Gathers nutritional data from Spoonacular API of selected meals
 export const showNutrition = async function () {
   try {
     state.ingredientList = [];
@@ -39,13 +38,12 @@ export const showNutrition = async function () {
         ingreArray.splice(0, 1, String(Number(ingreArray[0]) / meal.servings));
         state.ingredientList.push(ingreArray.join("+"));
       });
-      console.log(state.ingredientList);
     });
 
     const ingredientList = `ingredientList=${state.ingredientList.join("%0A")}`;
 
     const res = await fetch(
-      `https://api.spoonacular.com/recipes/parseIngredients?includeNutrition=true&apiKey=${SPKey}`,
+      `https://api.spoonacular.com/recipes/parseIngredients?includeNutrition=true&apiKey=${API_KEY}`,
       {
         method: "POST",
         body: ingredientList
@@ -60,10 +58,8 @@ export const showNutrition = async function () {
           : "";
       });
     });
-    console.log(state.mealsNutrition);
 
     state.totalNutrition = groupBy(state.mealsNutrition, "name");
-    console.log(state.totalNutrition);
 
     state.allNutrition = state.totalNutrition.map((nutrient) => {
       return {
@@ -74,15 +70,12 @@ export const showNutrition = async function () {
           state.userNutrition[nutrient.name.toLowerCase().replace(" ", "_")]
       };
     });
-
-    console.log(state.allNutrition);
-
-    console.log(data);
   } catch (error) {
     alert(error);
   }
 };
 
+//Handles creation of a new meal
 export const createMeal = function (searchParamsStrArr, searchParamsStr) {
   state.meals.selectedMeals.push({
     id: Number(searchParamsStrArr[0].substring(3)),
@@ -95,6 +88,7 @@ export const createMeal = function (searchParamsStrArr, searchParamsStr) {
   persistMeals();
 };
 
+//Handles movement of a meal from being selected to unselected or vice versa
 export const moveMeal = function (mealData) {
   const mealDataArr = mealData.split("&");
   const id = Number(mealDataArr[0].substring(3));
@@ -117,6 +111,7 @@ export const moveMeal = function (mealData) {
   persistMeals();
 };
 
+//Handles deletion of a meal
 export const deleteMeal = function (mealData) {
   const mealDataArr = mealData.split("&");
   const id = Number(mealDataArr[0].substring(3));
@@ -135,6 +130,7 @@ export const deleteMeal = function (mealData) {
   persistMeals();
 };
 
+//Handles the modification of a meal
 export const editMeal = function (mealData) {
   const mealDataArr = mealData.split("&");
   const mealName = mealDataArr[1].substring(10).replaceAll("+", " ");
@@ -163,6 +159,7 @@ export const editMeal = function (mealData) {
   persistMeals();
 };
 
+//Calculates the user required nutrition from the calories entered by the user
 export const calcUserNutrition = function (calories) {
   const proteinLow = ((calories * 0.1) / 4).toFixed(2);
   const proteinHigh = ((calories * 0.35) / 4).toFixed(2);
@@ -201,6 +198,7 @@ const persistMeals = function () {
   localStorage.setItem("meals", JSON.stringify(state.meals));
 };
 
+//calculates total nutrition of all meals
 const groupBy = function (arr, key) {
   return arr
     .sort((a, b) => a[key].localeCompare(b[key]))

@@ -15,65 +15,6 @@ body {
   opacity: 0;
 }
 
-.load-intro {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation-duration: 2.5s;
-  animation-name: introslide;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes introslide {
-  from {
-    position: fixed;
-    top: 0%;
-    opacity: 0%;
-  }
-
-  30% {
-    position: fixed;
-    top: 60%;
-    opacity: 100%;
-  }
-
-  to {
-    position: fixed;
-    top: 50%;
-  }
-}
-
-.load-userform {
-  padding: 100px;
-
-  animation-duration: 1s;
-  animation-name: userformSlide;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes userformSlide {
-  from {
-    position: fixed;
-    top: 100%;
-    opacity: 0%;
-  }
-
-  to {
-    position: fixed;
-    top: 50%;
-    opacity: 100%;
-  }
-}
-
-.intro-out {
-  position: fixed;
-  top: 0%;
-  opacity: 0%;
-
-  transition: 1s;
-}
-
 .app {
   margin: auto;
   width: 1000px;
@@ -124,8 +65,6 @@ body {
 /********************************************** Greetings Section ************************************************/
 
 #greetings-section {
-  /* display: inline-block; */
-  /* max-width: 70%; */
   margin-left: 30px;
   grid-column: 1/2;
   grid-row: 1/2;
@@ -461,23 +400,6 @@ tbody tr:last-of-type {
   border-bottom: 2px solid #3acc2c;
 }
 
-/********************************************** Donut Charts ********************************************/
-
-/* #charts {
-  margin-top: 2rem;
-}
-
-.chart {
-  display: inline-block;
-  margin: 0 4rem;
-}
-
-#donutchart1 {
-}
-
-#donutchart2 {
-} */
-
 /********************************************** Media Queries ********************************************/
 
 @media (max-width: 1055px) {
@@ -561,8 +483,4 @@ tbody tr:last-of-type {
     grid-column: 1/2;
     grid-row: 3/4;
   }
-
-  /* .chart {
-    margin: 0 1rem;
-  } */
 }

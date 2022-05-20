@@ -1,7 +1,4 @@
 import View from "./view.js";
-// import editIcon from "../../img/icons/edit.png";
-// import binIcon from "../../img/icons/bin.png";
-// import minusIcon from "../../img/icons/minus.png";
 
 class SelectedMealsView extends View {
   #parentElement = document.getElementById("selected-meals");

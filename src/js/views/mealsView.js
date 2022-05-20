@@ -1,6 +1,4 @@
 import View from "./view.js";
-// import wellnessIcon from "../../img/icons/wellness.png";
-// import createIcon from "../../img/icons/create.png";
 
 class MealsView extends View {
   #errorMessage =
@@ -28,14 +26,6 @@ class MealsView extends View {
     this.toggleResultsViewTab();
     this.showResultsView();
   }
-
-  // addHandlerControls(handler) {
-  //   const meals = document.getElementById("meals");
-  //   meals.addEventListener("click", function (e) {
-  //     if (e.target.classList.contains("meal-icon"))
-  //       handler(e.target.id, e.target.closest("div .meal").dataset.meal);
-  //   });
-  // }
 
   #generateMarkup() {
     return `

@@ -1,7 +1,4 @@
 import View from "./view.js";
-// import editIcon from "../../img/icons/edit.png";
-// import binIcon from "../../img/icons/bin.png";
-// import addIcon from "../../img/icons/add.png";
 
 class UnselectedMealsView extends View {
   #parentElement = document.getElementById("meals-repo");

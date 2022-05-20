@@ -91,8 +91,6 @@ export default class View {
     this.getParentElement().innerHTML = "";
   }
 
-  renderSpinner() {}
-
   renderError(message = this.getErrorMessage()) {
     const markup = `<p>${message}</p>`;
 
