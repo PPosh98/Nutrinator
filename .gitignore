@@ -1,4 +1,4 @@
 .parcel-cache
 dist
 node_modules
-config.js
+src/js/config.js
